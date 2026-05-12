@@ -1,0 +1,373 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Meraki J — hi</title>
+  <meta name="description" content="Official album site for hi by Meraki J." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=Creepster&family=Rubik+Glitch&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    html { background: #020202; }
+    body { margin: 0; background: #020202; }
+
+    .site {
+      min-height: 100vh;
+      background: #020202;
+      color: white;
+      font-family: 'Special Elite', ui-monospace, monospace;
+      letter-spacing: .03em;
+      overflow-x: hidden;
+    }
+
+    .site::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 20;
+      opacity: .34;
+      background:
+        repeating-linear-gradient(0deg, rgba(255,255,255,.035) 0px, rgba(255,255,255,.035) 1px, transparent 1px, transparent 4px),
+        radial-gradient(circle at 50% 0%, rgba(255,255,255,.08), transparent 25%);
+      mix-blend-mode: screen;
+    }
+
+    .nav {
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 22px 12px;
+      background: #010101;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+      position: sticky;
+      top: 0;
+      z-index: 9;
+    }
+
+    .brand,
+    .graffiti-title {
+      font-family: 'Creepster', fantasy;
+      color: #fff;
+      letter-spacing: -.04em;
+      text-shadow:
+        0 2px 0 rgba(255,255,255,.12),
+        0 8px 18px rgba(255,255,255,.16);
+      transform: rotate(-1.5deg);
+    }
+
+    .brand {
+      font-size: 2.9rem;
+      line-height: .75;
+      text-transform: uppercase;
+    }
+
+    .menu {
+      font-size: 2.5rem;
+      line-height: 1;
+      opacity: .9;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 700px;
+      padding: 34px 22px 42px;
+      overflow: hidden;
+      isolation: isolate;
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(0,0,0,.95) 0%, rgba(0,0,0,.72) 34%, rgba(0,0,0,.22) 72%, rgba(0,0,0,.60) 100%),
+        linear-gradient(180deg, rgba(0,0,0,.08) 0%, rgba(0,0,0,.10) 54%, rgba(0,0,0,.84) 100%),
+        url("assets/album-cover.jpeg");
+      background-size: cover;
+      background-position: 56% top;
+      background-repeat: no-repeat;
+      opacity: .94;
+      z-index: -2;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 58% 12%, rgba(0,255,255,.08), transparent 22%),
+        radial-gradient(circle at 86% 58%, rgba(255,0,180,.08), transparent 28%);
+      z-index: -1;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 14px;
+      border: 1px solid rgba(255,255,255,.48);
+      border-radius: 999px;
+      padding: 10px 16px;
+      background: rgba(0,0,0,.36);
+      font-size: .64rem;
+      letter-spacing: .26em;
+      color: rgba(255,255,255,.9);
+      margin-bottom: 28px;
+    }
+
+    .hi-title {
+      position: relative;
+      margin: 0 0 118px;
+      font-family: 'Rubik Glitch', 'Arial Black', sans-serif;
+      font-size: clamp(5.8rem, 36vw, 8.4rem);
+      line-height: .68;
+      color: white;
+      text-shadow:
+        -7px 0 0 rgba(255,0,0,.48),
+        7px 0 0 rgba(0,255,255,.48),
+        0 0 18px rgba(255,255,255,.55);
+      transform: rotate(-1deg);
+    }
+
+    .hi-title::before,
+    .hi-title::after {
+      content: 'hi';
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: .68;
+      mix-blend-mode: screen;
+    }
+
+    .hi-title::before {
+      color: #ff003c;
+      clip-path: inset(0 0 58% 0);
+      transform: translate(-9px, 2px);
+    }
+
+    .hi-title::after {
+      color: #00e5ff;
+      clip-path: inset(46% 0 0 0);
+      transform: translate(9px, -2px);
+    }
+
+    .hero-copy {
+      max-width: 315px;
+      margin: 0 0 18px;
+      color: rgba(255,255,255,.88);
+      font-size: .88rem;
+      line-height: 1.62;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 340px;
+    }
+
+    .link-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      min-width: 98px;
+      padding: 11px 13px;
+      border: 1px solid rgba(255,255,255,.43);
+      border-radius: 999px;
+      background: rgba(0,0,0,.48);
+      color: white;
+      text-decoration: none;
+      font-size: .57rem;
+      letter-spacing: .14em;
+    }
+
+    .section {
+      position: relative;
+      min-height: 142px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .section::before {
+      content: '';
+      position: absolute;
+      inset: 0 0 0 34%;
+      background-image: url("assets/album-cover.jpeg");
+      background-size: cover;
+      background-position: center;
+      opacity: .30;
+      z-index: -2;
+    }
+
+    .section::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, #020202 0%, rgba(2,2,2,.93) 34%, rgba(2,2,2,.45) 100%);
+      z-index: -1;
+    }
+
+    .section-content {
+      padding: 30px 22px;
+      max-width: 355px;
+    }
+
+    .graffiti-title {
+      margin: 0 0 15px;
+      font-size: 2.45rem;
+      line-height: .78;
+      text-transform: uppercase;
+    }
+
+    .type-text {
+      margin: 0;
+      color: rgba(255,255,255,.78);
+      font-size: .75rem;
+      line-height: 1.62;
+    }
+
+    .spaced { letter-spacing: .32em; }
+
+    .press-button {
+      width: fit-content;
+      margin-top: 18px;
+    }
+
+    .signup {
+      padding: 30px 22px;
+      border-bottom: 1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.78);
+    }
+
+    .signup h3 {
+      margin: 0 0 9px;
+      font-size: .86rem;
+      font-weight: 400;
+      letter-spacing: .35em;
+    }
+
+    .signup p {
+      margin: 0 0 18px;
+      color: rgba(255,255,255,.62);
+      font-size: .76rem;
+      line-height: 1.6;
+    }
+
+    .signup-form {
+      display: grid;
+      gap: 12px;
+    }
+
+    .email-input,
+    .join-button {
+      width: 100%;
+      border: 1px solid rgba(255,255,255,.34);
+      border-radius: 999px;
+      background: rgba(255,255,255,.04);
+      color: white;
+      padding: 14px 18px;
+      font-family: inherit;
+    }
+
+    .join-button {
+      background: #050505;
+      letter-spacing: .24em;
+    }
+
+    .footer {
+      padding: 24px 22px 34px;
+      display: grid;
+      gap: 12px;
+      color: rgba(255,255,255,.45);
+      font-size: .62rem;
+      letter-spacing: .18em;
+    }
+
+    @media (min-width: 760px) {
+      .site { max-width: 520px; margin: 0 auto; box-shadow: 0 0 80px rgba(0,0,0,.7); }
+    }
+  </style>
+</head>
+<body>
+  <main class="site">
+    <header class="nav">
+      <div class="brand">Meraki J</div>
+      <div class="menu">☰</div>
+    </header>
+
+    <section class="hero">
+      <div class="badge">✦ NEW ALBUM / TBA</div>
+      <h1 class="hi-title">hi</h1>
+      <p class="hero-copy">
+        A spiritual transmission from the space between death, memory, ego, rebirth, and color. Built from shadow, distortion, love, and the feeling of waking up inside your own life.
+      </p>
+      <div class="button-row">
+        <a class="link-button" href="https://music.apple.com/us/artist/meraki-j/1861976915" target="_blank" rel="noreferrer"><span>♫</span><span>APPLE MUSIC</span></a>
+        <a class="link-button" href="https://open.spotify.com/artist/6hT3bzPzWPIvCAweWQJqAQ?si=69JT23_fQvCCcG_1lslL2w" target="_blank" rel="noreferrer"><span>◉</span><span>SPOTIFY</span></a>
+        <a class="link-button" href="https://www.instagram.com/merakijofficial?igsh=ZGl2cXVkN3Vpa2cx&utm_source=qr" target="_blank" rel="noreferrer"><span>▢</span><span>INSTAGRAM</span></a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-content">
+        <h2 class="graffiti-title">Tracklist</h2>
+        <p class="type-text">TBA</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-content">
+        <h2 class="graffiti-title">Merch</h2>
+        <p class="type-text spaced">COMING SOON</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-content">
+        <h2 class="graffiti-title">Press Kit</h2>
+        <p class="type-text">Download high-res images, bio, logos, and more.</p>
+        <a class="link-button press-button" href="mailto:merakijofficial@gmail.com">↓ VIEW PRESS KIT</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-content">
+        <h2 class="graffiti-title">Visual World</h2>
+        <p class="type-text">
+          The world of Meraki J is a dream you can’t wake up from. A place where heaven glitches, shadows speak, and color is a language for the soul. It’s surreal, raw, and spiritual — a constant reminder that the line between life and the afterlife is thinner than you think.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-content">
+        <h2 class="graffiti-title">Manifesto</h2>
+        <p class="type-text">
+          I don’t make music to fit in. I make it to remember. To remember the pain, the love, the lessons, the deaths, and the rebirths. Every song is a piece of my soul I had to bury just to build again. This is for the ones who feel too much, see too deep, and know there’s more. We’re not here to stay. We’re here to leave something that outlives us. We don’t die. We transmit.
+        </p>
+      </div>
+    </section>
+
+    <section class="signup">
+      <h3>JOIN THE TRANSMISSION</h3>
+      <p>Be the first to know about new music, drops, shows, and more.</p>
+      <form class="signup-form" action="mailto:merakijofficial@gmail.com" method="post" enctype="text/plain">
+        <input class="email-input" type="email" name="email" placeholder="Enter your email" />
+        <button class="join-button" type="submit">JOIN</button>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <span>© 2026 MERAKI J. ALL RIGHTS RESERVED.</span>
+      <span>MERAKIJOFFICIAL@GMAIL.COM</span>
+      <span>INSTAGRAM · SPOTIFY · APPLE</span>
+    </footer>
+  </main>
+</body>
+</html>
